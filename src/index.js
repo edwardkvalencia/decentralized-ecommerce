@@ -8,7 +8,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div>The project has been setup.</div>
+            <div>The project has been setup. Remember to npm install and webpack -w -d to see your changes.</div>
         )
     }
 }
