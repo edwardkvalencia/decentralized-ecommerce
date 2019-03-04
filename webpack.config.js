@@ -27,8 +27,9 @@ module.exports = {
     },
     plugins: [
         new html({
-            template: './src/index.html',
-            filename: './index.html'
+            title: "dApp project",
+            template: './src/index.ejs',
+            hash: true
         })
     ]
 }
