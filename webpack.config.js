@@ -1,4 +1,5 @@
 require('babel-polyfill')
+const webpack = require('webpack')
 const html = require('html-webpack-plugin')
 const path = require('path')
 
@@ -17,17 +18,21 @@ module.exports = {
                     loader: 'babel-loader'
                 }
             }, {
-                test: /\.html$/,
+                test: /\.styl$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'html-loader'
-                }
+                use: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                    {loader: 'stylus-loader'},
+
+                ]
             }
         ]
     },
     plugins: [
-        new html({
-            title: "dApp project",
+        new webpack.HotModuleReplacementPlugin(),
+        new html({           
+            title: "e-commerce dApp",
             template: './src/index.ejs',
             hash: true
         })
